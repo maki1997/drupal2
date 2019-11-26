@@ -17,11 +17,11 @@
 
   public function getMovies() {
 
-    $result = \Drupal::entityQuery('node')
-      ->condition('type', 'movie')
+    $ids = \Drupal::entityQuery('node')
+      ->condition('type','movie')
       ->execute();
 
-    $moviesList = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($result);
+    $moviesList = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($ids);
     $movies = [];
 
     foreach($moviesList as $movie){
@@ -32,10 +32,11 @@
           'image' => $movie->get('field_image1')->entity->uri->value
        );
     }
-
     return $movies;
 
   }
+
+
   public function movies(){
 
     return  array(

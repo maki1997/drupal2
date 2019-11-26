@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="" />
+    <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Services/MoviesService.php" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +28,12 @@
       </set>
     </option>
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="c70e945e-500d-40c1-829c-e7ea14460f37" name="localhost" port="7000" />
+    </servers>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
@@ -120,8 +129,9 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Constants" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/themes/bartik/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/contrib" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -129,6 +139,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\drupal82\modules\contrib" />
       <recent name="C:\wamp64\www\drupal82\core\themes\bartik\templates" />
     </key>
   </component>
@@ -155,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574769735997</updated>
       <workItem from="1574769738484" duration="2301000" />
-      <workItem from="1574772054192" duration="4342000" />
+      <workItem from="1574772054192" duration="9338000" />
     </task>
     <servers />
   </component>
