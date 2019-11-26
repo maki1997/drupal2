@@ -1,0 +1,7 @@
+new_custom_module.movies_list:
+    path: '/content/movies'
+    defaults:
+        _controller: '\Drupal\new_custom_module\Controller\MoviesController::movies'
+        _title: 'movies'
+    requirements:
+        _permission: 'access content'

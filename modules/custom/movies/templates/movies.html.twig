@@ -1,0 +1,6 @@
+{{breakpoint()}}
+{% for movie in movies %}
+<h2>{{movie.title}}</h2>
+Description: {{movie.description}} </br>
+<img src= "{{file_url(movie.image)}}" /> </br>
+{% endfor %}

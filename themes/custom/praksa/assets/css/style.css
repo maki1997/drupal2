@@ -1,0 +1,17 @@
+.layout-container {
+    padding: 1%;
+}
+header {
+    padding: 2%; 
+}
+.layout-sidebar {
+    align-content: right;
+}
+main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+}
