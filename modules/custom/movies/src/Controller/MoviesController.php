@@ -45,7 +45,10 @@
       '#movies' => $this->getMovies()
     );
 
-    /*$output = \Drupal::Service('renderer')->renderRoot($build);
+    /*$build['#theme'] = 'movies';
+    return $build;
+
+    $output = \Drupal::Service('renderer')->renderRoot($build);
     $response = new Response();
     $response.setContent($output);
     return $response;*/
