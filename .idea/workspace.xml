@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Services/MoviesService.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,19 +126,28 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1U9XMQ2VOBxPiloypy5Ei5zTrqo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Constants" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/contrib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/custom/movies" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\drupal82\modules\custom\movies\src" />
+      <recent name="C:\wamp64\www\drupal82\modules\custom\configForm\src\Form" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\drupal82\modules\custom\movies" />
+      <recent name="C:\wamp64\www\drupal82\modules\new_custom_module\src\templates" />
+      <recent name="C:\wamp64\www\drupal82\modules\custom\twig_return_module\templates" />
       <recent name="C:\wamp64\www\drupal82\modules\contrib" />
       <recent name="C:\wamp64\www\drupal82\core\themes\bartik\templates" />
     </key>
@@ -166,7 +175,9 @@
       <option name="presentableId" value="Default" />
       <updated>1574769735997</updated>
       <workItem from="1574769738484" duration="2301000" />
-      <workItem from="1574772054192" duration="9338000" />
+      <workItem from="1574772054192" duration="11201000" />
+      <workItem from="1574842625293" duration="8186000" />
+      <workItem from="1574855092172" duration="2701000" />
     </task>
     <servers />
   </component>
@@ -178,7 +189,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

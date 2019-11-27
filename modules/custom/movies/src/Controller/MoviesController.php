@@ -4,6 +4,7 @@
 
  use \Drupal\Core\Controller\ControllerBase;
  use Drupal\Core\Entity\Query\QueryFactory;
+ use http\Env\Response;
 
  class MoviesController extends ControllerBase {
 
@@ -39,10 +40,15 @@
 
   public function movies(){
 
-    return  array(
+    return array(
       '#theme' => 'movies',
       '#movies' => $this->getMovies()
     );
+
+    /*$output = \Drupal::Service('renderer')->renderRoot($build);
+    $response = new Response();
+    $response.setContent($output);
+    return $response;*/
   }
 
  }
