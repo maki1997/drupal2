@@ -12,7 +12,6 @@
 
   protected $entityQuery;
   protected $entityTypeManager;
-   protected $nodeStorage;
 
   public function __constructor(QueryFactory $entityQuery,EntityTypeManager $entityTypeManager){
     $this->entityQuery = $entityQuery;
@@ -21,8 +20,8 @@
 
    public static function create(ContainerInterface $container) {
      $creator = new static(
-       $container->get('entity_type.manager')->getStorage('node'),
-       $container->get('current_user')
+       $container->get('entity_type.manager'),
+       $container->get('config.factory'),
      );
      return $creator;
    }
@@ -70,7 +69,7 @@
     return array('movies' => [
       '#theme' => 'movies',
       '#movies' => $this->getMovies(),
-    ],
+      ],
       'pager' => [
         '#type' => 'pager',
       ]);
