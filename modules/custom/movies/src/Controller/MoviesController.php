@@ -27,8 +27,6 @@
      return $creator;
    }
 
-
-
   public function getMovies() {
     $configFormCount = \Drupal::config('movie.settings')->get('movies_count');
       $ids = \Drupal::entityQuery('node')
@@ -54,7 +52,6 @@
   }
 
 
-
    private function getTaxonomy($movie){
      $terms = $movie->get('field_movie_type')->referencedEntities();
      $name = "Genre not defined";
@@ -70,8 +67,6 @@
 
   public function movies(){
 
-
-
     return array('movies' => [
       '#theme' => 'movies',
       '#movies' => $this->getMovies(),
@@ -79,9 +74,6 @@
       'pager' => [
         '#type' => 'pager',
       ]);
-
-
-
 
   }
 

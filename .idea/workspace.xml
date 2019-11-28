@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.info.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.info.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Form/MovieCountForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Form/MovieCountForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +177,7 @@
       <workItem from="1574772054192" duration="11201000" />
       <workItem from="1574842625293" duration="8186000" />
       <workItem from="1574855092172" duration="7411000" />
-      <workItem from="1574929166515" duration="21144000" />
+      <workItem from="1574929166515" duration="22558000" />
     </task>
     <servers />
   </component>
