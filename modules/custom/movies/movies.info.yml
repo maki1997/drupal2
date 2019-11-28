@@ -3,3 +3,4 @@ desription: Module about movies
 package: Custom
 type: module
 core: 8.x
+configure: movies.config

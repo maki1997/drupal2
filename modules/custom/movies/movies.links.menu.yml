@@ -1,0 +1,12 @@
+movies.config:
+  title: 'Number of movies'
+  description: 'No of movie per page'
+  parent: system.admin
+  route_name: movies.config
+
+movies.facebook:
+  title: 'Facebook'
+  description: 'fb'
+  parent: system.admin
+  url: http://www.facebook.com
+

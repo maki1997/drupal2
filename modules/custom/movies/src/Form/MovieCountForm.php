@@ -24,7 +24,7 @@ class MovieCountForm extends ConfigFormBase {
 
   public function getFormId() {
 
-    return 'simple_config_form';
+    return 'configMovieNumber';
 
   }
 
@@ -65,10 +65,10 @@ class MovieCountForm extends ConfigFormBase {
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    $movies = $form_state->getValues();
+    $movies = $form_state->getValue('count');
 
     $this->config('movie.settings')
-      ->set('movies.count', $movies)
+      ->set('movies_count', $movies)
       ->save();
     return parent::submitForm($form, $form_state);
 
