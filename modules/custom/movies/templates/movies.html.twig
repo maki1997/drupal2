@@ -2,8 +2,8 @@
 <form action="" method="get">
   Search movies: <input type="text" placeholder="Search by title..." name="searchMovies" value="{{filter.title}}">
   Choose movie type:
-  <select name="chosenMovieType" value="{{ filter.chosenGenre }}">
-    <option value="">Genre not defined</option>
+  <select name="chosenGenre" value="{{ filter.genre }}">
+    <option value="Action">Genre not defined</option>
     {% for genre in filter.allGenres %}
       <option value="{{ genre.name }}">{{ genre.name }}</option>
     {% endfor %}

@@ -51,15 +51,60 @@ class MoviesController extends ControllerBase {
 
   }
 
-  public function searchMovies($title){
+  public function searchMovies($title,$genre){
     $configFormCount = $this->config('movie.settings')->get('movies_count');
-    if(empty($title)) {
+    if(empty($title) && empty($genre)) {
       $movies = $this->getMovies();
       return $movies;
-    } else {
+    } else if(empty($genre)){
       $nodes = \Drupal::entityQuery('node')
         ->condition('type', 'movie')
         ->condition('title', $title, 'CONTAINS')
+        ->sort('title', 'DESC')
+        ->pager($configFormCount)
+        ->execute();
+      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
+      $movies = [];
+      foreach ($moviesList as $movie) {
+
+        $movies[] = array(
+          'title' => $movie->getTitle(),
+          'description' => $movie->get('field_description')->value,
+          'image' => $movie->get('field_image1')->entity->uri->value,
+          'genre' => $this->getGenre($movie)
+        );
+      }
+
+      return $movies;
+
+
+    }else if(empty($title)){
+      $nodes = \Drupal::entityQuery('node')
+        ->condition('type', 'movie')
+        //condition za pretragu po zanru
+        ->pager($configFormCount)
+        ->execute();
+      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
+      $movies = [];
+      foreach ($moviesList as $movie) {
+
+        $movies[] = array(
+          'title' => $movie->getTitle(),
+          'description' => $movie->get('field_description')->value,
+          'image' => $movie->get('field_image1')->entity->uri->value,
+          'genre' => $this->getGenre($movie)
+        );
+      }
+
+      return $movies;
+
+
+    }
+
+    else {
+      $nodes = \Drupal::entityQuery('node')
+        ->condition('type', 'movie')
+        //condition za pretragu po zanru
         ->sort('title', 'DESC')
         ->pager($configFormCount)
         ->execute();
@@ -118,15 +163,15 @@ class MoviesController extends ControllerBase {
     return array(
       'movies' => [
         '#theme' => 'movies',
-        '#movies' => $this->searchMovies($title),
+        '#movies' => $this->searchMovies($title,$genre),
       ],
       'pager' => [
         '#type' => 'pager',
       ],
       'filter' => [
         '#title' => $title,
-        '#allMovieTypes' => $allMovieTypes,
-        '#chosenMovieType' => $genre
+        '#allGenres' => $allMovieTypes,
+        '#genre' => $genre
       ]);
 
   }
