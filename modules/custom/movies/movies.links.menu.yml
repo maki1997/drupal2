@@ -10,3 +10,10 @@ movies.facebook:
   parent: system.admin
   url: http://www.facebook.com
 
+movies.getMovies:
+  title: 'Movies'
+  description: 'List of movies'
+  parent: system.admin
+  route_name: movies.getMovies
+
+
