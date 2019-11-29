@@ -1,7 +1,18 @@
-{{breakpoint()}}
+<form action="" method="get">
+  Search movies: <input type="text" placeholder="Search by title..." name="searchMovies" value="{{filterTitle.title}}">
+  Choose genre:
+  <select name="chosenGenre" value="{{ filter.genre }}">
+    <option value="">Genre not defined</option>
+    {% for genre in filterGenre.genres %}
+      <option value="{{ genre.name }}">{{ genre.name }}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="Search">
+</form>
 {% for movie in movies %}
-<h2>{{movie.title}}</h2>
-Description: {{movie.description}} </br>
-<img src= "{{file_url(movie.image)}}" /> </br>
-Genre: {{movie.genre}} </br>
+  <h2>{{movie.title}}</h2>
+  Description: {{movie.description}} </br>
+  <img src= "{{file_url(movie.image)}}" /> </br>
+  Genre: {{movie.genre}} </br>
 {% endfor %}
+
