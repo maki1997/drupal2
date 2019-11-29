@@ -19,9 +19,6 @@
       <executable />
     </execution>
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="drupal82" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -137,15 +134,11 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Constants" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-=======
     <property name="last_opened_file_path" value="C:/xampp/htdocs/drupal82" />
->>>>>>> 32f82663f5355ce3049e4ddfc9f85471df7f7307
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -187,12 +180,7 @@
       <workItem from="1574842625293" duration="8186000" />
       <workItem from="1574855092172" duration="7411000" />
       <workItem from="1574929166515" duration="25317000" />
-<<<<<<< HEAD
-      <workItem from="1575015652630" duration="11235000" />
-      <workItem from="1575031124369" duration="6707000" />
-=======
       <workItem from="1575015652630" duration="12168000" />
->>>>>>> 32f82663f5355ce3049e4ddfc9f85471df7f7307
     </task>
     <servers />
   </component>
