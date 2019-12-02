@@ -23,7 +23,7 @@ class MoviesController extends ControllerBase {
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
       $container->get('request_stack'),
-      $container->get('entity.query'),
+      $container->get('entity.query')
     );
   }
 
@@ -37,16 +37,46 @@ class MoviesController extends ControllerBase {
     $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($ids);
     $movies = [];
     foreach($moviesList as $movie){
-
       $movies[] = array(
         'title' => $movie->getTitle(),
         'description' =>  $movie->get('field_description')->value,
         'image' => $movie->get('field_image1')->entity->uri->value,
-        'genre' => $this->getGenre($movie)
+        'genre' => $this->getGenre($movie),
+        'producing_house' => $this->getProducingHouse($movie)
+
       );
     }
 
     return $movies;
+
+
+  }
+
+  public function getMoviesWithoutProducingHouse() {
+    $ids = \Drupal::entityQuery('node')
+      ->condition('type','movie')
+      ->sort('title','DESC')
+      ->execute();
+    $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($ids);
+    $movies = [];
+    foreach($moviesList as $movie){
+      if($this->getProducingHouse($movie) == "No producing house"){
+      $movies[] = array(
+        'title' => $movie->getTitle(),
+        'description' =>  $movie->get('field_description')->value,
+        'image' => $movie->get('field_image1')->entity->uri->value,
+        'genre' => $this->getGenre($movie),
+        'producing_house' => $this->getProducingHouse($movie)
+
+      );
+      }
+    }
+
+    return array(
+      'movies' => [
+        '#theme' => 'movies',
+        '#movies' => $movies
+      ]);
 
 
   }
@@ -69,9 +99,10 @@ class MoviesController extends ControllerBase {
 
         $movies[] = array(
           'title' => $movie->getTitle(),
-          'description' => $movie->get('field_description')->value,
+          'description' =>  $movie->get('field_description')->value,
           'image' => $movie->get('field_image1')->entity->uri->value,
-          'genre' => $this->getGenre($movie)
+          'genre' => $this->getGenre($movie),
+          'producing_house' => $this->getProducingHouse($movie)
         );
       }
 
@@ -81,7 +112,7 @@ class MoviesController extends ControllerBase {
     }else if(empty($title)){
       $nodes = \Drupal::entityQuery('node')
         ->condition('type', 'movie')
-        //condition za pretragu po zanru
+        ->condition('field_movie_type.entity:taxonomy_term.name', $genre, '=')
         ->pager($configFormCount)
         ->execute();
       $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
@@ -90,9 +121,10 @@ class MoviesController extends ControllerBase {
 
         $movies[] = array(
           'title' => $movie->getTitle(),
-          'description' => $movie->get('field_description')->value,
+          'description' =>  $movie->get('field_description')->value,
           'image' => $movie->get('field_image1')->entity->uri->value,
           'genre' => $this->getGenre($movie),
+          'producing_house' => $this->getProducingHouse($movie)
         );
       }
 
@@ -104,38 +136,7 @@ class MoviesController extends ControllerBase {
     else {
       $nodes = \Drupal::entityQuery('node')
         ->condition('type', 'movie')
-        //condition za pretragu po zanru
-        ->sort('title', 'DESC')
-        ->pager($configFormCount)
-        ->execute();
-      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
-      $movies = [];
-      foreach ($moviesList as $movie) {
-
-        $movies[] = array(
-          'title' => $movie->getTitle(),
-          'description' => $movie->get('field_description')->value,
-          'image' => $movie->get('field_image1')->entity->uri->value,
-          'genre' => $this->getGenre($movie)
-        );
-      }
-
-      return $movies;
-
-
-    }
-
-  }
-
-  public function findMovies($title){
-
-    $configFormCount = $this->config('movie.settings')->get('movies_count');
-    if(empty($title)) {
-      $movies = $this->getMovies();
-      return $movies;
-    } else {
-      $nodes = \Drupal::entityQuery('node')
-        ->condition('type', 'movie')
+        ->condition('field_movie_type.entity:taxonomy_term.name', $genre, '=')
         ->condition('title', $title, 'CONTAINS')
         ->sort('title', 'DESC')
         ->pager($configFormCount)
@@ -146,18 +147,19 @@ class MoviesController extends ControllerBase {
 
         $movies[] = array(
           'title' => $movie->getTitle(),
-          'description' => $movie->get('field_description')->value,
+          'description' =>  $movie->get('field_description')->value,
           'image' => $movie->get('field_image1')->entity->uri->value,
-          'genre' => $this->getGenre($movie)
+          'genre' => $this->getGenre($movie),
+          'producing_house' => $this->getProducingHouse($movie)
         );
       }
 
       return $movies;
 
+
     }
+
   }
-
-
 
   private function getGenre($movie){
     $terms = $movie->get('field_movie_type')->referencedEntities();
@@ -171,10 +173,24 @@ class MoviesController extends ControllerBase {
     return $name;
   }
 
+  private function getProducingHouse($movie){
+    $terms = $movie->get('field_producing_house')->referencedEntities();
+    $name = "No producing house";
+    foreach ($terms as $term){
+      if($term != null){
+        $name = $term->getTitle();
+      }
+
+    }
+    return $name;
+  }
+
+
+
 
   public function getGenres(){
     $type = 'movie_type';
-    $genres =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($type);
+    $genres =$this->entityTypeManager()->getStorage('taxonomy_term')->loadTree($type);
     $genreNames = array();
     foreach ($genres as $genre) {
       $genreNames[] = array(
@@ -187,13 +203,15 @@ class MoviesController extends ControllerBase {
 
 
 
+
+
   public function movies(){
     $title = !empty(\Drupal::request()->get('searchMovies')) ? \Drupal::request()->get('searchMovies') : '';
     $genre = !empty(\Drupal::request()->get('chosenGenre')) ? \Drupal::request()->get('chosenGenre') : '';
     return array(
       'movies' => [
         '#theme' => 'movies',
-        '#movies' => $this->findMovies($title),
+        '#movies' => $this->searchMovies($title,$genre),
         '#filter' => [
           'title' => $title,
           'allGenres' => $this->getGenres(),

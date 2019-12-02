@@ -15,3 +15,9 @@ movies.getMovies:
   description: 'List of movies'
   parent: system.admin
   route_name: movies.getMovies
+
+movies.getMoviesWithoutProducingHouse:
+  title: 'Movies without producing house'
+  description: 'List of movies without producing house'
+  parent: system.admin
+  route_name: movies.getMoviesWithoutProducingHouse

@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.module" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.links.menu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.links.menu.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/assets/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/drupal82.info.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/drupal82.libraries.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/templates/movies.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/templates/page.html.twig" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +34,7 @@
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="c70e945e-500d-40c1-829c-e7ea14460f37" name="localhost" port="7000" />
+      <server host="drupalmaki.com" id="15d7ab16-b170-4150-aa74-712aa36b24c2" name="drupalmaki.com" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
@@ -188,6 +184,7 @@
       <workItem from="1574929166515" duration="25317000" />
       <workItem from="1575015652630" duration="12168000" />
       <workItem from="1575276927531" duration="8320000" />
+      <workItem from="1575286504397" duration="8467000" />
     </task>
     <servers />
   </component>
@@ -206,16 +203,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php</url>
-          <line>192</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -2,18 +2,18 @@
   Search movies: <input type="text" placeholder="Search by title..." name="searchMovies" value="{{filter.title}}">
   Choose movie type:
   <select name="chosenGenre" value="{{ filter.genre }}">
+    <option value="">Any</option>
     {% for genre in filter.allGenres %}
       {{ breakpoint() }}
       <option value="{{ genre.name }}">{{ genre.name }}</option>
     {% endfor %}
-
-    <option value="">Genre not defined</option>
   </select>
   <input type="submit" value="Search">
 </form>
 {% for movie in movies %}
-  <h2>{{movie.title}}</h2>
+  <h1>{{movie.title}}</h1>
   Description: {{movie.description}} </br>
-  <img src= "{{file_url(movie.image)}}" /> </br>
+  <img src= "{{file_url(movie.image)}}" height="80px" width="150px" /> </br>
   Genre: {{movie.genre}} </br>
+  Production: {{movie.producing_house}} </br>
 {% endfor %}
