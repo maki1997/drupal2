@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.links.menu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.links.menu.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.module" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/drupal82.info.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/drupal82.libraries.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/templates/movies.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/custom/praksa/templates/page.html.twig" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,11 +140,11 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Constants" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/xampp/htdocs/drupal82" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -181,6 +187,7 @@
       <workItem from="1574855092172" duration="7411000" />
       <workItem from="1574929166515" duration="25317000" />
       <workItem from="1575015652630" duration="12168000" />
+      <workItem from="1575276927531" duration="8320000" />
     </task>
     <servers />
   </component>
@@ -204,14 +211,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig</url>
-          <line>9</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig</url>
-          <line>7</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php</url>
+          <line>192</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

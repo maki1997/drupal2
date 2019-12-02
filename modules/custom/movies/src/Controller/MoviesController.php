@@ -92,7 +92,7 @@ class MoviesController extends ControllerBase {
           'title' => $movie->getTitle(),
           'description' => $movie->get('field_description')->value,
           'image' => $movie->get('field_image1')->entity->uri->value,
-          'genre' => $this->getGenre($movie)
+          'genre' => $this->getGenre($movie),
         );
       }
 
@@ -127,6 +127,36 @@ class MoviesController extends ControllerBase {
 
   }
 
+  public function findMovies($title){
+
+    $configFormCount = $this->config('movie.settings')->get('movies_count');
+    if(empty($title)) {
+      $movies = $this->getMovies();
+      return $movies;
+    } else {
+      $nodes = \Drupal::entityQuery('node')
+        ->condition('type', 'movie')
+        ->condition('title', $title, 'CONTAINS')
+        ->sort('title', 'DESC')
+        ->pager($configFormCount)
+        ->execute();
+      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
+      $movies = [];
+      foreach ($moviesList as $movie) {
+
+        $movies[] = array(
+          'title' => $movie->getTitle(),
+          'description' => $movie->get('field_description')->value,
+          'image' => $movie->get('field_image1')->entity->uri->value,
+          'genre' => $this->getGenre($movie)
+        );
+      }
+
+      return $movies;
+
+    }
+  }
+
 
 
   private function getGenre($movie){
@@ -141,13 +171,14 @@ class MoviesController extends ControllerBase {
     return $name;
   }
 
+
   public function getGenres(){
     $type = 'movie_type';
     $genres =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($type);
     $genreNames = array();
     foreach ($genres as $genre) {
       $genreNames[] = array(
-        $genre->name
+        'name'=>$genre->name
       );
     }
     return $genreNames;
@@ -159,19 +190,18 @@ class MoviesController extends ControllerBase {
   public function movies(){
     $title = !empty(\Drupal::request()->get('searchMovies')) ? \Drupal::request()->get('searchMovies') : '';
     $genre = !empty(\Drupal::request()->get('chosenGenre')) ? \Drupal::request()->get('chosenGenre') : '';
-    $allMovieTypes = $this->getGenres();
     return array(
       'movies' => [
         '#theme' => 'movies',
-        '#movies' => $this->searchMovies($title,$genre),
+        '#movies' => $this->findMovies($title),
+        '#filter' => [
+          'title' => $title,
+          'allGenres' => $this->getGenres(),
+          'genre' => $genre
+        ]
       ],
       'pager' => [
         '#type' => 'pager',
-      ],
-      'filter' => [
-        '#title' => $title,
-        '#allGenres' => $allMovieTypes,
-        '#genre' => $genre
       ]);
 
   }
