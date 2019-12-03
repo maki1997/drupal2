@@ -21,11 +21,23 @@ class MoviesController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('entity_type.manager'),
-      $container->get('config.factory'),
-      $container->get('request_stack'),
-      $container->get('entity.query')
+      $container->get('config.factory')
     );
   }
+
+  public static function entityQuery($entity_type, $conjunction = 'AND') {
+    return static::getContainer()
+      ->get('entity.query')
+      ->get($entity_type, $conjunction);
+  }
+
+  public static function request() {
+    return static::getContainer()
+      ->get('request_stack')
+      ->getCurrentRequest();
+  }
+
+
 
   public function getMovies() {
     $configFormCount = $this->config('movie.settings')->get('movies_count');
@@ -50,6 +62,34 @@ class MoviesController extends ControllerBase {
     return $movies;
 
 
+  }
+
+  public function getProductionHousesAndTheirChildMovies(){
+    $ids = \Drupal::entityQuery('node')
+      ->condition('type','producing_house')
+      ->execute();
+    $producingHouses = $this->entityTypeManager()->getStorage('node')->loadMultiple($ids);
+    $productions = [];
+    $movieIds = \Drupal::entityQuery('node')
+      ->condition('type','movie')
+      ->sort('title','DESC')
+      ->execute();
+    $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($movieIds);
+    foreach($producingHouses as $producingHouse){
+      foreach($moviesList as $movie){
+        if($producingHouse->getTitle() == $this->getProducingHouse($movie)){
+          $productions[] = array(
+            'name' => $producingHouse->getTitle(),
+            'movie' => $movie->getTitle()
+          );
+
+        }
+      }
+
+
+    }
+
+    return $productions;
   }
 
   public function getMoviesWithoutProducingHouse() {
@@ -173,6 +213,28 @@ class MoviesController extends ControllerBase {
     return $name;
   }
 
+
+
+  private function getChildMovies($producingHouse){
+    $ids = \Drupal::entityQuery('node')
+      ->condition('type','movie')
+      ->sort('title','DESC')
+      ->execute();
+    $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($ids);
+    $moviesOfProduction = [];
+    foreach ($moviesList as $movie){
+      if($producingHouse->getTitle() == $this->getProducingHouse($movie)){
+        $moviesOfProduction[]=array(
+          'title' => $movie->getTitle(),
+          'description' =>  $movie->get('field_description')->value,
+          'image' => $movie->get('field_image1')->entity->uri->value,
+          'genre' => $this->getGenre($movie));
+      }
+
+    }
+    return $moviesOfProduction;
+  }
+
   private function getProducingHouse($movie){
     $terms = $movie->get('field_producing_house')->referencedEntities();
     $name = "No producing house";
@@ -199,6 +261,7 @@ class MoviesController extends ControllerBase {
     }
     return $genreNames;
   }
+
 
 
 

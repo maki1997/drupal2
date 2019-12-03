@@ -1,0 +1,4 @@
+css-styles:
+  css:
+    theme:
+      static/css/style.css: {}

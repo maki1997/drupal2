@@ -6,7 +6,30 @@ function movies_theme($existing, $type, $theme, $path) {
       'movies' => [
         'variables' => [
             'movies' => [],
-            'filter' => []
+            'filter' => [],
+            'phMovies' => []
         ],
         ]);
   }
+
+function movies_preprocess_node__producing_house(&$variables){
+  $productionNodeId = $variables['node']->id();
+  $ids = \Drupal::entityQuery('node')
+    ->condition('type','movie')
+    ->condition('field_producing_house.entity.nid', $productionNodeId,'=')
+    ->sort('title','DESC')
+    ->execute();
+  $moviesList = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($ids);
+  $movies = [];
+  foreach($moviesList as $movie){
+    $movies[] = array(
+      'title' => $movie->getTitle(),
+      'description' =>  $movie->get('field_description')->value,
+      'image' => $movie->get('field_image1')->entity->uri->value
+
+    );
+  }
+
+  return $variables['phMovies'] = $movies;
+
+}

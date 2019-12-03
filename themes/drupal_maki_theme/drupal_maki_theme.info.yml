@@ -1,0 +1,12 @@
+name: Drupal maki theme
+description: Theme
+type: theme
+core: 8.x
+libraries:
+  - drupal_maki_theme/css-styles
+
+regions:
+
+    header: 'Header'
+    content: 'Main Content'
+    footer: 'Footer'

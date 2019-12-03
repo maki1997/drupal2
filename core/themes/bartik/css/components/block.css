@@ -7,3 +7,7 @@
 .block .content {
   margin-top: 10px;
 }
+
+.content {
+  text-align: center
+}

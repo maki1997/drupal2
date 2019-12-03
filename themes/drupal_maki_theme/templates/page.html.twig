@@ -1,0 +1,23 @@
+<div id="page-wrapper" class="container-fluid">
+  <header role="banner">
+    <nav class="navbar navbar-dark bg-primary">
+    {{ page.header }}
+    </nav>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <div class="layout-content">
+      {% if page.content %}
+        {{ page.content }}
+      {% endif %}
+    </div>
+
+  </main>
+
+  {% if page.footer_fifth %}
+    <div class="site-footer__bottom">
+      {{ page.footer_fifth }}
+    </div>
+  {% endif %}
+</div>
