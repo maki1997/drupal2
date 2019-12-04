@@ -7,13 +7,13 @@
       {{ breakpoint() }}
       <option value="{{ genre.name }}">{{ genre.name }}</option>
     {% endfor %}
-  </select>
+  </select></form><br>
   <input type="submit" value="Search" class="form-control">
 </form>
 {% for movie in movies %}
   <h1>{{movie.title}}</h1>
-  Description: {{movie.description}} </br>
-  <img src= "{{file_url(movie.image)}}" height="80px" width="150px" /> </br>
+  Description: {{movie.description|raw}} </br>
+  <img src= "{{file_url(movie.image)}}" height="150px" width="200px" /> </br>
   Genre: {{movie.genre}} </br>
   Production: {{movie.producing_house}} </br>
 {% endfor %}

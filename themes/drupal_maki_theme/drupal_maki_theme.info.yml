@@ -2,11 +2,19 @@ name: Drupal maki theme
 description: Theme
 type: theme
 core: 8.x
+base theme: bootstrap
 libraries:
   - drupal_maki_theme/css-styles
 
 regions:
-
-    header: 'Header'
-    content: 'Main Content'
-    footer: 'Footer'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  header: 'Top Bar'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'

@@ -50,7 +50,7 @@ class MoviesController extends ControllerBase {
     $movies = [];
     foreach($moviesList as $movie){
       $movies[] = array(
-        'title' => $movie->getTitle(),
+        'title' => $this->t($movie->getTitle(),array(),array('langcode'=>'ar')),// t funkcija
         'description' =>  $movie->get('field_description')->value,
         'image' => $movie->get('field_image1')->entity->uri->value,
         'genre' => $this->getGenre($movie),

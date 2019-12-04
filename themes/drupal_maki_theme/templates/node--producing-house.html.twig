@@ -1,5 +1,5 @@
 <h3>Child movies of this production house:</h3>
 {% for movie in phMovies %}
   <h1>{{ movie.title }}</h1>
-    <h6>{{ movie.description }}</h6>
+    <h6>{{ movie.description|raw }}</h6>
 {% endfor %}

@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/themes/drupal_maki_theme/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/themes/bartik/css/components/block.css" beforeDir="false" afterPath="$PROJECT_DIR$/core/themes/bartik/css/components/block.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/themes/bartik/templates/page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/core/themes/bartik/templates/page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.links.menu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.links.menu.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/movies.module" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/movies.module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/templates/movies.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/movies/templates/page.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/drupal_maki_theme.info.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/drupal_maki_theme/drupal_maki_theme.info.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/drupal_maki_theme.libraries.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/drupal_maki_theme/drupal_maki_theme.libraries.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/menu--main.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/movies.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/movies.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/node--producing-house.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/node--producing-house.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/page.html.twig" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,25 +142,25 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Constants" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/themes/bartik/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/drupal_maki_theme/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\drupal82\core\themes\bartik\templates" />
-      <recent name="C:\xampp\htdocs\drupal82\themes\drupal_maki_theme" />
-      <recent name="C:\xampp\htdocs\drupal82\themes\drupal_maki_theme\templates" />
-      <recent name="C:\wamp64\www\drupal82\modules\custom\movies" />
-      <recent name="C:\wamp64\www\drupal82\modules\new_custom_module\src\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\drupal82\themes" />
       <recent name="C:\xampp\htdocs\drupal82\themes\drupal_maki_theme" />
+      <recent name="C:\xampp\htdocs\drupal82\themes" />
       <recent name="C:\wamp64\www\drupal82\modules\custom\movies\src" />
       <recent name="C:\wamp64\www\drupal82\modules\custom\configForm\src\Form" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\drupal82\themes\drupal_maki_theme\templates" />
+      <recent name="C:\xampp\htdocs\drupal82\core\themes\bartik\templates" />
+      <recent name="C:\xampp\htdocs\drupal82\themes\drupal_maki_theme" />
+      <recent name="C:\wamp64\www\drupal82\modules\custom\movies" />
+      <recent name="C:\wamp64\www\drupal82\modules\new_custom_module\src\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -218,10 +221,6 @@
           <url>file://$PROJECT_DIR$/core/themes/bartik/templates/page.html.twig</url>
           <line>105</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/themes/drupal_maki_theme/templates/movies.html.twig</url>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

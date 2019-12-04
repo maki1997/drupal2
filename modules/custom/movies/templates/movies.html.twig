@@ -1,5 +1,5 @@
 <form action="" method="get">
-  Search movies: <input type="text" placeholder="Search by title..." name="searchMovies" value="{{filter.title}}" class="form-control">
+  Search movies: <input type="text" class="form-control" placeholder="Search by title..." name="searchMovies" value="{{filter.title}}" width="200px">
   Choose movie type:
   <select name="chosenGenre" value="{{ filter.genre }}" class="form-control">
     <option value="">Any</option>
@@ -11,9 +11,9 @@
   <input type="submit" value="Search" class="form-control">
 </form>
 {% for movie in movies %}
-  <h1>{{movie.title}}</h1>
-  Description: {{movie.description}} </br>
-  <img src= "{{file_url(movie.image)}}" height="80px" width="150px" /> </br>
+  <h1>{{ movie.title }}</h1>{# t funkcija #}
+  Description: {{movie.description|raw}} </br>
+  <img src= "{{file_url(movie.image)}}" height="150px" width="200px" /> </br>
   Genre: {{movie.genre}} </br>
   Production: {{movie.producing_house}} </br>
 {% endfor %}
