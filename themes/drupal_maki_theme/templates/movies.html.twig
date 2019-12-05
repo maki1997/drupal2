@@ -1,3 +1,24 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<div class="slider">
+  {% for image in images %}
+    <div><img src= "{{file_url(image.image)}}" height="150px" width="200px" /></div>
+  {% endfor %}
+</div>
+<hr>
+
+<script type="text/javascript">
+    $('.slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+    });
+</script>
 <form action="" method="get">
   Search movies: <input type="text" class="form-control" placeholder="Search by title..." name="searchMovies" value="{{filter.title}}" width="200px">
   Choose movie type:
@@ -16,4 +37,7 @@
   <img src= "{{file_url(movie.image)}}" height="150px" width="200px" /> </br>
   Genre: {{movie.genre}} </br>
   Production: {{movie.producing_house}} </br>
+
 {% endfor %}
+
+

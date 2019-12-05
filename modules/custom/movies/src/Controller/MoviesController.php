@@ -64,6 +64,25 @@ class MoviesController extends ControllerBase {
 
   }
 
+  public function movieImages() {
+    $ids = \Drupal::entityQuery('node')
+      ->condition('type','movie')
+      ->sort('title','DESC')
+      ->execute();
+    $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($ids);
+    $movies = [];
+    foreach($moviesList as $movie){
+      $movies[] = array(
+        'image' => $movie->get('field_image1')->entity->uri->value,
+
+      );
+    }
+
+    return $movies;
+
+
+  }
+
   public function getProductionHousesAndTheirChildMovies(){
     $ids = \Drupal::entityQuery('node')
       ->condition('type','producing_house')
@@ -264,17 +283,30 @@ class MoviesController extends ControllerBase {
 
 
 
+  public function getSlideImages(){
+    $paragraphs = $variables['node']->get('field_slideshows')->entity->get('field_slides')->referencedEntities();
+    $paragraphImages = [];
+    foreach($paragraphs as $paragraph){
+      $paragraphImages[] = array(
+        'slide_image' => $paragraph->get('field_slide_image')->entity->uri->value,
+      );
+    }
+    $variables['allSlides'] =  $paragraphImages;
 
+    return $variables['allSlides'];
+  }
 
 
 
   public function movies(){
     $title = !empty(\Drupal::request()->get('searchMovies')) ? \Drupal::request()->get('searchMovies') : '';
     $genre = !empty(\Drupal::request()->get('chosenGenre')) ? \Drupal::request()->get('chosenGenre') : '';
+    $a = $this->movieImages();
     return array(
       'movies' => [
         '#theme' => 'movies',
         '#movies' => $this->searchMovies($title,$genre),
+        '#images' => $this->movieImages(),
         '#filter' => [
           'title' => $title,
           'allGenres' => $this->getGenres(),

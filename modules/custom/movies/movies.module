@@ -7,7 +7,9 @@ function movies_theme($existing, $type, $theme, $path) {
         'variables' => [
             'movies' => [],
             'filter' => [],
-            'phMovies' => []
+            'images' => [],
+            'phMovies' => [],
+            'allSlides' => []
         ],
         ]);
   }
@@ -31,5 +33,19 @@ function movies_preprocess_node__producing_house(&$variables){
   }
 
   return $variables['phMovies'] = $movies;
+
+}
+
+function movies_preprocess_node__movie(&$variables){
+    $paragraphs = $variables['node']->get('field_slideshows')->entity->get('field_slides')->referencedEntities();
+    $paragraphImages = [];
+    foreach($paragraphs as $paragraph){
+      $paragraphImages[] = array(
+        'slide_image' => $paragraph->get('field_slide_image')->entity->uri->value,
+      );
+    }
+    $variables['allSlides'] =  $paragraphImages;
+
+  return $variables['allSlides'];
 
 }
