@@ -1,0 +1,17 @@
+{% for book in books %}
+  <h1>{{ book.title }}</h1>
+  <div id="books">
+    <table class="table table-hover">
+      <thead><tr><th> Price </th><th> ISBN </th></tr></thead>
+      <tbody><td>{{book.price}}$</td><td>{{book.isbn}}</td></tbody>
+    </table>
+  </div>
+  <div id="comments">
+    <table class="table table-hover">
+      <thead><tr><th>Comments</th></thead>
+      <tbody>{% for c in book.comments %}<tr><td>{{c}}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  <hr>
+{% endfor %}
+

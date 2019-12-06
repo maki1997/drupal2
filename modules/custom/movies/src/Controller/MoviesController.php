@@ -7,36 +7,20 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use http\Env\Response;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class MoviesController extends ControllerBase {
 
-  protected $entityQuery;
-  protected $entityTypeManager;
+  protected $request;
 
-  public function __constructor(QueryFactory $entityQuery,EntityTypeManager $entityTypeManager){
-    $this->entityQuery = $entityQuery;
-    $this->entityTypeManager = $entityTypeManager;
+  public function __construct(){
   }
 
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('entity_type.manager'),
-      $container->get('config.factory')
+      $container->get('config.factory'),
     );
   }
-
-  public static function entityQuery($entity_type, $conjunction = 'AND') {
-    return static::getContainer()
-      ->get('entity.query')
-      ->get($entity_type, $conjunction);
-  }
-
-  public static function request() {
-    return static::getContainer()
-      ->get('request_stack')
-      ->getCurrentRequest();
-  }
-
 
 
   public function getMovies() {
@@ -112,6 +96,8 @@ class MoviesController extends ControllerBase {
   }
 
   public function getMoviesWithoutProducingHouse() {
+    $title = !empty(\Drupal::request()->get('searchMovies')) ? \Drupal::request()->get('searchMovies') : '';
+    $genre = !empty(\Drupal::request()->get('chosenGenre')) ? \Drupal::request()->get('chosenGenre') : '';
     $ids = \Drupal::entityQuery('node')
       ->condition('type','movie')
       ->sort('title','DESC')
@@ -130,13 +116,132 @@ class MoviesController extends ControllerBase {
       );
       }
     }
-
     return array(
       'movies' => [
         '#theme' => 'movies',
-        '#movies' => $movies
+        '#movies' => $movies,
+        '#images' => $this->movieImages(),
+        '#filter' => [
+          'title' => $title,
+          'allGenres' => $this->getGenres(),
+          'genre' => $genre]
       ]);
 
+
+  }
+
+
+
+  public function searchMoviesWithoutProducingHouse(){
+    $title = !empty(\Drupal::request()->get('searchMovies')) ? \Drupal::request()->get('searchMovies') : '';
+    $genre = !empty(\Drupal::request()->get('chosenGenre')) ? \Drupal::request()->get('chosenGenre') : '';
+    if(empty($title) && empty($genre)) {
+      $movies = $this->getMoviesWithoutProducingHouse();
+      return $movies;
+    } else if(empty($genre)){
+      $nodes = \Drupal::entityQuery('node')
+        ->condition('type', 'movie')
+        ->condition('title', $title, 'CONTAINS')
+        ->sort('title', 'DESC')
+        ->execute();
+      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
+      $movies = [];
+      foreach ($moviesList as $movie) {
+
+        if($this->getProducingHouse($movie) == "No producing house"){
+          $movies[] = array(
+            'title' => $movie->getTitle(),
+            'description' =>  $movie->get('field_description')->value,
+            'image' => $movie->get('field_image1')->entity->uri->value,
+            'genre' => $this->getGenre($movie),
+            'producing_house' => $this->getProducingHouse($movie)
+
+          );
+        }
+      }
+
+      return array(
+        'movies' => [
+          '#theme' => 'movies',
+          '#movies' => $movies,
+          '#images' => $this->movieImages(),
+          '#filter' => [
+        'title' => $title,
+        'allGenres' => $this->getGenres(),
+        'genre' => $genre]
+        ]);
+
+    }else if(empty($title)){
+      $nodes = \Drupal::entityQuery('node')
+        ->condition('type', 'movie')
+        ->condition('field_movie_type.entity:taxonomy_term.name', $genre, '=')
+        ->execute();
+      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
+      $movies = [];
+      foreach ($moviesList as $movie) {
+
+        if($this->getProducingHouse($movie) == "No producing house"){
+          $movies[] = array(
+            'title' => $movie->getTitle(),
+            'description' =>  $movie->get('field_description')->value,
+            'image' => $movie->get('field_image1')->entity->uri->value,
+            'genre' => $this->getGenre($movie),
+            'producing_house' => $this->getProducingHouse($movie)
+
+          );
+        }
+      }
+
+      return array(
+        'movies' => [
+          '#theme' => 'movies',
+          '#movies' => $movies,
+          '#images' => $this->movieImages(),
+          '#filter' => [
+            'title' => $title,
+            'allGenres' => $this->getGenres(),
+            'genre' => $genre]
+        ]);
+
+
+    }
+
+    else {
+      $nodes = \Drupal::entityQuery('node')
+        ->condition('type', 'movie')
+        ->condition('field_movie_type.entity:taxonomy_term.name', $genre, '=')
+        ->condition('title', $title, 'CONTAINS')
+        ->sort('title', 'DESC')
+        ->execute();
+      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($nodes);
+      $movies = [];
+      foreach ($moviesList as $movie) {
+
+        if($this->getProducingHouse($movie) == "No producing house"){
+          $movies[] = array(
+            'title' => $movie->getTitle(),
+            'description' =>  $movie->get('field_description')->value,
+            'image' => $movie->get('field_image1')->entity->uri->value,
+            'genre' => $this->getGenre($movie),
+            'producing_house' => $this->getProducingHouse($movie)
+
+          );
+        }
+      }
+
+      return array(
+        'movies' => [
+          '#theme' => 'movies',
+          '#movies' => $movies,
+          '#images' => $this->movieImages(),
+          '#filter' => [
+            'title' => $title,
+            'allGenres' => $this->getGenres(),
+            'genre' => $genre]
+        ]);
+
+
+    }
 
   }
 
@@ -282,19 +387,6 @@ class MoviesController extends ControllerBase {
   }
 
 
-
-  public function getSlideImages(){
-    $paragraphs = $variables['node']->get('field_slideshows')->entity->get('field_slides')->referencedEntities();
-    $paragraphImages = [];
-    foreach($paragraphs as $paragraph){
-      $paragraphImages[] = array(
-        'slide_image' => $paragraph->get('field_slide_image')->entity->uri->value,
-      );
-    }
-    $variables['allSlides'] =  $paragraphImages;
-
-    return $variables['allSlides'];
-  }
 
 
 
