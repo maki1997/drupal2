@@ -1,10 +1,3 @@
-parameters:
-  books.user_key_value_cache: true
-
-
 services:
   books.books_service:
     class: Drupal\books\Services\BooksService
-    arguments:
-      - '@keyvalue'
-      - %books.user_key_value_cache%

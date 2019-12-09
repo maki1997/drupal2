@@ -18,6 +18,6 @@ movies.config:
   path: '/config/movies'
   defaults:
     _form: '\Drupal\movies\Form\MovieCountForm'
-    _title: 'Config form to control number of movies'
+    _title: 'Config movies'
   requirements:
     _permission: 'administer site configuration'

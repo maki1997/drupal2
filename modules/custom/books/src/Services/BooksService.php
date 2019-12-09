@@ -9,7 +9,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class BooksService
 {
 
-
   public function getValuesFromExternalUri(){
     $uri = "http://www.chilkatsoft.com/xml-samples/bookstore.xml";
     try {
