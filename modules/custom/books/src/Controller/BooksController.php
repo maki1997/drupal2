@@ -56,8 +56,8 @@ class BooksController extends  ControllerBase
     return $comments;
   }
   public function books(){
-    $xml = $this->bService->getValuesFromExternalUri();
-    $this->bService->createContentTypesFromXml($xml);
+    $books = $this->bService->getValuesFromExternalUri();
+    $this->bService->createContentTypesFromXml($books);
     return array(
       'books' => [
         '#theme' => 'books',

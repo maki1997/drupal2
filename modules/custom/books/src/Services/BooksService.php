@@ -23,8 +23,8 @@ class BooksService
       return FALSE;
     }
     $xmlToParse = simplexml_load_string($data);
-    $xml = json_decode(json_encode($xmlToParse),true);
-    return $xml;
+    $booksArray = json_decode(json_encode($xmlToParse),true);
+    return $booksArray;
 
   }
 
