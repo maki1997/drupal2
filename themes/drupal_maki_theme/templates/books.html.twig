@@ -1,10 +1,9 @@
-<form action="/books/add" method="post">
-  Title:<input type="text" name="title" class="form-control" placeholder="Enter title...">
-  Price:<input type="number" name="price" class="form-control" placeholder="Enter price...">
-  ISBN:<input type="text" name="isbn" class="form-control" placeholder="Enter ISBN...">
-  Comment:<input type="text" name="comment" class="form-control" placeholder="Enter comment..."><br>
-  <input type="submit" class="form-control">
-</form>
+
+  Title:<input id="bookTitle" type="text" class="form-control" placeholder="Enter title...">
+  Price:<input id="bookPrice" type="number" class="form-control" placeholder="Enter price...">
+  ISBN:<input id="bookISBN" type="text" class="form-control" placeholder="Enter ISBN...">
+  Comment:<input id="bookComment" type="text" class="form-control" placeholder="Enter comment..."><br>
+  <input id="addBook" type="submit" class="form-control">
 {% for book in books %}
   <h1>{{ book.title }}</h1>
   <div id="books">
@@ -21,4 +20,6 @@
   </div>
   <hr>
 {% endfor %}
+
+
 

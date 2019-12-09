@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4734317e-6d6b-48ac-997a-f0bea62a1402" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/books/books.routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/books/books.routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/custom/books/src/Controller/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/books/src/Controller/BooksController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/drupal_maki_theme.libraries.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/drupal_maki_theme/drupal_maki_theme.libraries.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/books.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/drupal_maki_theme/templates/books.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -191,7 +191,7 @@
       <workItem from="1575373039156" duration="11202000" />
       <workItem from="1575533971592" duration="20852000" />
       <workItem from="1575620312219" duration="20727000" />
-      <workItem from="1575879405421" duration="15040000" />
+      <workItem from="1575879405421" duration="24541000" />
     </task>
     <servers />
   </component>
@@ -218,6 +218,11 @@
           <url>file://$PROJECT_DIR$/core/themes/bartik/templates/page.html.twig</url>
           <line>105</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/modules/custom/movies/src/Controller/MoviesController.php</url>
+          <line>111</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/vendor/ajgl/breakpoint-twig-extension/src/BreakpointExtension.php</url>

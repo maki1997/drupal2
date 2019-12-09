@@ -98,11 +98,20 @@ class MoviesController extends ControllerBase {
   public function getMoviesWithoutProducingHouse() {
     $title = !empty(\Drupal::request()->get('searchMovies')) ? \Drupal::request()->get('searchMovies') : '';
     $genre = !empty(\Drupal::request()->get('chosenGenre')) ? \Drupal::request()->get('chosenGenre') : '';
-    $ids = \Drupal::entityQuery('node')
-      ->condition('type','movie')
-      ->sort('title','DESC')
-      ->execute();
-    $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($ids);
+    if (\Drupal::cache()->get('MoviesNPCache') == false) {
+      $a = 'cache empty';
+      $ids = \Drupal::entityQuery('node')
+        ->condition('type','movie')
+        ->sort('title','DESC')
+        ->execute();
+      $moviesList = $this->entityTypeManager()->getStorage('node')->loadMultiple($ids);
+    }else{
+      $b='cache not empty';
+      $loadFromCache = \Drupal::cache()->get('MoviesNPCache');
+      $moviesList = $loadFromCache->data;
+    }
+
+
     $movies = [];
     foreach($moviesList as $movie){
       if($this->getProducingHouse($movie) == "No producing house"){
@@ -116,6 +125,10 @@ class MoviesController extends ControllerBase {
       );
       }
     }
+
+    \Drupal::cache()->set('MoviesNPCache', $moviesList, time()+300);
+
+
     return array(
       'movies' => [
         '#theme' => 'movies',

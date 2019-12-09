@@ -3,3 +3,10 @@ global-styling:
   css:
     base:
       includes/css/style.css: {}
+  js:
+    includes/js/addBook.js: {}
+
+
+  dependencies:
+    - core/jquery
+
