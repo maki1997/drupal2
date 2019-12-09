@@ -51,7 +51,7 @@ class BooksService
         $newBook['field_price'] = $price;
         $newBook['field_isbn'] = $isbn;
         $newBook['field_comments'] = $comms;
-        $bookToCreate = $this->entityTypeManager()->getStorage('node')->create($newBook);
+        $bookToCreate = \Drupal::entityTypeManager()->getStorage('node')->create($newBook);
         $bookToCreate->save();
       }
     }
