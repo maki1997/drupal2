@@ -5,3 +5,13 @@ books.getBooks:
     _title: 'Books'
   requirements:
     _permission: 'access content'
+
+books.addBook:
+  path: '/books/add'
+  defaults:
+    _controller: '\Drupal\books\Controller\AddBookController::addBook'
+    _title: 'Add book'
+  requirements:
+    _permission: 'access content'
+
+

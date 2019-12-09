@@ -8,6 +8,9 @@ use Drupal\Core\Entity\Query\QueryInterface;
 use GuzzleHttp\Client;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\Query\Sql\QueryFactory;
+use Drupal\Core\Session\AccountInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class BooksController extends  ControllerBase
 {
@@ -46,6 +49,8 @@ class BooksController extends  ControllerBase
 
   }
 
+
+
   private function getComments($book){
     $comments = [];
     $comField = $book->get('field_comments');
@@ -55,8 +60,8 @@ class BooksController extends  ControllerBase
     return $comments;
   }
   public function books(){
-    $books = $this->bService->getValuesFromExternalUri();
-    $this->bService->createContentTypesFromXml($books);
+    //$books = $this->bService->getValuesFromExternalUri();
+    //$this->bService->createContentTypesFromXml($books);
     return array(
       'books' => [
         '#theme' => 'books',
