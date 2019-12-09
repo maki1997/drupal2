@@ -1,5 +1,16 @@
 <h3>Child movies of this production house:</h3>
 {% for movie in phMovies %}
-  <h1>{{ movie.title }}</h1>
-    <h6>{{ movie.description|raw }}</h6>
+  <div id="titles">
+    <table class="table table-hover">
+      <thead><tr><th> Title </th></tr></thead>
+      <tbody><td><h1>{{ movie.title }}</h1></td></tbody>
+    </table>
+  </div>
+  <div id="descs">
+    <table class="table table-hover">
+      <thead><tr><th>Description</th></thead>
+      <tbody><tr><td>{{ movie.description|raw }}</td></tr></tbody>
+    </table>
+  </div>
+  <hr>
 {% endfor %}
