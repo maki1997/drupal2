@@ -7,11 +7,12 @@ jQuery(document).ready(function(e) {
     var comment=jQuery('#bookComment').val().trim();
     console.log(title);
     jQuery.post('/books/add',{'title':title,'price':price,'isbn':isbn,'comment':comment},function(data) {
-      if(data.status == "success") {
-        alert("Book added");
-      }
+      alert("Book added!!!");
+      window.location.reload();
       });
     event.preventDefault();
     return false;
     });
+
+
 });
